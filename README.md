@@ -73,6 +73,28 @@ Security: permanent API keys never leave the backend. The browser only sees a sh
 
 ---
 
+## Supported languages
+
+The assistant supports the following languages/locales (verified voice mappings available in `backend/config/languages.js`):
+
+- Hindi
+- Bengali
+- Marathi
+- Gujarati
+- Tamil
+- Telugu
+- Kannada
+- Malayalam
+- Punjabi
+- Odia
+- Assamese
+- Urdu
+- English (India)
+
+The UI allows selecting input language and output/voice, and the backend maps these to Azure neural voices.
+
+---
+
 ## Routes and usage
 
 - `GET /api/speech/languages` — returns supported language list + voice mapping for the UI
