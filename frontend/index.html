@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kisan-Swasthya Voice Assistant · Agriculture & Health</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Azure Speech SDK (browser) for STT + TTS using a short-lived token -->
+    <script src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@1.40.0/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js"></script>
+  </head>
+  <body>
+    <!-- ============ SCREEN 1: Language selection ============ -->
+    <section id="screen-select" class="screen active">
+      <div class="select-card">
+        <h1 class="brand">🌾🩺 Kisan-Swasthya Sahayak</h1>
+        <p class="subtitle">Voice assistant for <b>Agriculture</b> &amp; <b>Healthcare</b> only</p>
+
+        <h2 class="section-title">1. Language you will speak in</h2>
+        <div id="lang-grid" class="lang-grid"><!-- filled by JS --></div>
+
+        <div class="options-row">
+          <label class="opt">
+            <span>🗣 2. Answer language</span>
+            <select id="output-lang">
+              <option value="same">Same as I speak</option>
+            </select>
+          </label>
+          <label class="opt">
+            <span>🎙 Microphone</span>
+            <select id="mic-select"></select>
+          </label>
+          <label class="opt">
+            <span>🔊 Voice</span>
+            <select id="voice-gender">
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+            </select>
+          </label>
+        </div>
+
+        <button id="continue-btn" class="primary-btn" disabled>Continue →</button>
+        <p class="hint">Tip: speak in English and pick a different “Answer language” to get replies in that language.</p>
+      </div>
+    </section>
+
+    <!-- ============ SCREEN 2: Chat ============ -->
+    <section id="screen-chat" class="screen">
+      <header class="chat-header">
+        <div class="title">🌾🩺 Voice Assistant</div>
+        <button id="clear-btn" class="ghost-btn" title="Clear conversation">Clear</button>
+      </header>
+      <div class="lang-bars">
+        <label class="lang-bar">
+          <span>🎤 I speak</span>
+          <select id="input-switch" title="Input language"></select>
+        </label>
+        <label class="lang-bar">
+          <span>🗣 Answer in</span>
+          <select id="output-switch" title="Answer language"></select>
+        </label>
+      </div>
+
+      <div id="messages" class="messages">
+        <div class="msg ai">
+          <div class="bubble" id="welcome-bubble">Select the mic and start speaking about farming or health.</div>
+        </div>
+      </div>
+
+      <div id="error-bar" class="error-bar hidden"></div>
+
+      <footer class="chat-footer">
+        <div id="status-pill" class="status-pill ready">Ready</div>
+        <button id="mic-btn" class="mic-btn" aria-label="Tap to speak">
+          <span class="mic-icon">🎙</span>
+          <span class="pulse"></span>
+        </button>
+        <div class="mic-caption" id="mic-caption">Tap to speak</div>
+      </footer>
+    </section>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+========================================================================
+ Kisan-Swasthya Voice Assistant — Requirements
+========================================================================
+ NOTE: This is a Node.js project. Dependencies are installed with
+ "npm install" (they live in package.json), NOT with pip.
+ This file is a human-readable checklist of everything you need.
+========================================================================
+
+------------------------------------------------------------------------
+ 1. SYSTEM REQUIREMENTS
+------------------------------------------------------------------------
+Node.js        >= 18   (tested on v24.18.0)
+npm            >= 9    (tested on v11.18.0)
+A modern browser (Chrome / Edge) for microphone + Azure Speech SDK
+Internet connection (calls Azure Speech + Mistral cloud APIs)
+
+------------------------------------------------------------------------
+ 2. NODE DEPENDENCIES  (installed via:  npm install)
+------------------------------------------------------------------------
+express            ^4.19.2     web server + API routes
+cors               ^2.8.5      cross-origin support
+dotenv             ^16.4.5     loads .env environment variables
+express-rate-limit ^7.4.0      basic API rate limiting
+
+------------------------------------------------------------------------
+ 3. BROWSER DEPENDENCY  (loaded automatically from CDN, no install)
+------------------------------------------------------------------------
+microsoft-cognitiveservices-speech-sdk  1.40.0
+  -> Azure Speech SDK for in-browser Speech-to-Text and Text-to-Speech
+  -> Pulled from jsDelivr CDN in frontend/index.html
+
+------------------------------------------------------------------------
+ 4. API KEYS / ACCOUNTS REQUIRED  (put in the .env file)
+------------------------------------------------------------------------
+MISTRAL_API_KEY        from https://console.mistral.ai
+AZURE_SPEECH_KEY       from Azure Portal -> Speech resource -> Keys
+AZURE_SPEECH_REGION    e.g. centralindia, eastus
+
+------------------------------------------------------------------------
+ 5. HOW TO INSTALL & RUN
+------------------------------------------------------------------------
+  cp .env.example .env      (then fill in your keys)
+  npm install
+  npm start
+  open http://localhost:3000
+========================================================================
