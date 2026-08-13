@@ -157,5 +157,5 @@ This project is licensed under the Apache License 2.0 — see the `LICENSE` file
 
 ---
 
-If you want, I can also add a minimal `.env.example` and update `frontend/config.js` to document public-facing config.
+
 
